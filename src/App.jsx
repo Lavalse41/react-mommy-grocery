@@ -1,35 +1,172 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { imageSrc } from "./data/imageSrc.js";
+import { groceries } from "./data/groceries.js";
+import "./app.css";
+import "./root.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
   return (
-    <>
+    <div className="app">
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <Chatbox />
+        <Summary />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className="form">
+        <img id="backpages" src={imageSrc.backpage}></img>
+        <div id="balance-wrapper">
+          <img id="balance-stamp" src={imageSrc.circle}></img>
+          <Balance />
+        </div>
+        <div id="form-paper">
+          <Header />
+          <Form />
+          <GroceryList />
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+function Chatbox() {
+  return (
+    <div className="chatbox">
+      <div className="msg-outer-wrapper">
+        <img width="70px" height="70px" src={imageSrc.mommy}></img>
+        <div className="msg-wrapper">
+          <div className="msg first">
+            <p>ออม อยู่ข้างนอกใช่มั้ย ขากลับแวะตลาดหน่อย</p>
+          </div>
+
+          <div className="msg-tail f1"></div>
+          <div className="msg-tail b1"></div>
+
+          <div className="msg">
+            ฝากซื้อของตามนี้ โอนไปให้แล้ว 1000 นะ เอาบิลกับเงินทอนมาให้ด้วย
+          </div>
+          <div className="msg">..โทร</div>
+        </div>
+      </div>
+
+      <div className="msg-outer-wrapper right">
+        <div className="msg-tail f2"></div>
+        <div className="msg-tail b2"></div>
+        <div className="msg first user">emoji</div>
+        <img width="70px" height="70px" src={imageSrc.child}></img>
+      </div>
+    </div>
+  );
+}
+
+function Header() {
+  return (
+    <div className="header">
+      <div>
+        <h1>Notes</h1>
+        <h2>อย่าลืมซื้อของให้แม่ที่ตลาดด้วย</h2>
+      </div>
+      <p>12/08/2566 BE</p>
+    </div>
+  );
+}
+
+function Balance() {
+  return (
+    <div className="balance-container">
+      <p>เงินคงเหลือ</p>
+      <h3>1,000</h3>
+    </div>
+  );
+}
+
+function Form() {
+  return (
+    <div className="">
+      <form className="form-wrapper" onSubmit="">
+        <label>ชื่อ</label>
+        <input id="name" type="text"></input>
+        <label>รูป</label>
+        <input id="image" type="text"></input>
+        <label>ราคา (ชิ้น)</label>
+        <input id="price" type="text"></input>
+        <label>จำนวน</label>
+        <input id="number" type="number"></input>
+        <label>หน่วย</label>
+        <input id="measure" type="text"></input>
+        <button id="add-button">Send</button>
+      </form>
+    </div>
+  );
+}
+
+function GroceryList() {
+  return (
+    <div>
+      <div className="grocery-list">
+        {groceries.map((item) => {
+          return (
+            <div className="grocery-container" key={item.id}>
+              <button className="card-button toggle"> / </button>
+              <img src={item.image}></img>
+              <div className="detail-container">
+                <div>
+                  <span>{item.name}</span>
+                  <span className="price">{item.price}.-</span>
+                </div>
+                <div>
+                  <button className="card-button add">+</button>
+                  <span className="number">{item.number}</span>
+                  <button className="card-button subtract">-</button>
+                  <span className="measure">{item.unit}</span>
+                </div>
+              </div>
+              <button className="card-button delete">X</button>
+            </div>
+          );
+        })}
+      </div>
+      <div className="sort-checkout">
+        <div>back forth</div>
+        <SortList />
+        <button className="checkout-button">รวมบิล</button>
+      </div>
+    </div>
+  );
+}
+
+function SortList() {
+  return (
+    <select className="sort">
+      <option value="เรียงตามลำดับ">เรียงตามลำดับ</option>
+      <option>เรียงตามตัวอักษร</option>
+      <option>เรียงตามสถานะ</option>
+    </select>
+  );
+}
+
+function Summary() {
+  return (
+    <div className="summary">
+      <div>
+        <h2>รายการสินค้า</h2>
+        <ul>
+          <li>
+            กล้วยหอม<span>60.-</span>
+          </li>
+        </ul>
+      </div>
+
+      <div className="total">
+        <h2>
+          ยอดรวม <span>850.-</span>
+        </h2>
+        <h2>
+          เงินทอน <span>150.-</span>
+        </h2>
+      </div>
+    </div>
+  );
+}
+
+export default App;

@@ -29,11 +29,36 @@ label {
 }
 
 .app {
-  margin-top: 40px;
-  margin-left: 40px;
   width: 100vw;
   height: 100vh;
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* inputPage */
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  width: 600px;
+  background-color: var(--accent--3);
+  color: var(--text);
+}
+
+.init {
+  background-color: var(--accent--3);
+}
+
+.start-button {
+  font-family: "Maitree";
+  font-size: var(--fs--mg);
+  border-radius: 7px;
+  margin-top: 20px;
+  padding: 5px 10px;
+  background-color: var(--main--1);
 }
 
 /* chatbox */
@@ -41,7 +66,7 @@ label {
   display: flex;
   flex-direction: column;
   align-items: space-between;
-  border: #d3dba4 solid 1px;
+  /* border: #d3dba4 solid 1px; */
 }
 
 .msg-outer-wrapper {
@@ -138,10 +163,26 @@ img {
   height: 400px;
   background-color: var(--accent--3);
   transform: rotate(-5deg);
+  filter: drop-shadow(8px 8px 5px rgba(0, 0, 0, 0.2));
 }
 
 .total {
   text-align: end;
+}
+
+.total > h2:first-child {
+  display: inline-block;
+  background-color: var(--accent--5);
+  margin-bottom: 8px;
+}
+
+.total > h2 {
+  display: inline-block;
+  background-color: var(--accent--4);
+}
+
+h2 > span {
+  margin-left: 20px;
 }
 
 li {
@@ -157,44 +198,44 @@ li {
 }
 
 #backpages {
-  position: absolute;
-  bottom: 75px;
+  position: relative;
+  bottom: 6px;
   left: 20px;
   height: 650px;
   width: 1000px;
   z-index: 1;
+  filter: drop-shadow(8px 8px 10px rgba(0, 0, 0, 0.2));
 }
 
 #form-paper {
   position: absolute;
   z-index: 2;
-  top: 12px;
+  top: 0px;
   left: 40px;
   width: 980px;
-  height: 650px;
   background-color: white;
   z-index: 2;
 }
 
 /* balance */
-#balance-wrapper {
-  position: relative;
-}
-
 #balance-stamp {
   position: absolute;
-  top: -20px;
-  left: 870px;
+  top: -23px;
+  left: 878px;
   height: 170px;
   z-index: 3;
 }
 
 .balance-container {
   position: absolute;
-  width: 100px;
+  width: 170px;
   top: 30px;
-  left: 915px;
+  left: 880px;
   z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* header */
@@ -216,6 +257,8 @@ li {
   padding: 10px 30px;
   height: 50px;
   background-color: var(--main--1);
+  display: flex;
+  justify-content: space-between;
 }
 
 input {
@@ -236,9 +279,9 @@ input {
   width: 52px;
 }
 
-#add-button {
+#send-button {
   background-color: var(--accent--1);
-  border-radius: 8px;
+  border-radius: 7px;
   padding: 5px 10px;
   border: var(--text) solid 2px;
 }
@@ -320,13 +363,15 @@ input {
 
 .checkout-button {
   font-family: "Maitree";
-  font-size: var(--fs--md);
-  padding: 5px 20px;
+  font-size: var(--fs--reg);
+  padding: 3px 20px;
   border-radius: 5px;
   background-color: var(--main--2);
 }
+
 .sort-checkout {
   margin: 0px 30px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;

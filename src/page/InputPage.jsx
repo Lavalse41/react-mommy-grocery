@@ -1,19 +1,42 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function InputPage() {
+function InputPage({ onUserInput }) {
   const [name, setName] = useState("");
   const [budget, setBudget] = useState("");
+  const navigate = useNavigate();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    onUserInput(name, budget);
+    navigate("/grocery");
+  }
 
   return (
     <div className="app">
-      <div className="input-container">
+      <form onSubmit={handleSubmit} className="input-container">
         <div>
-          คุณชื่อ <input className="init" type="text"></input>
+          <label htmlFor="name">คุณชื่อ</label>
+          <input
+            id="name"
+            className="init"
+            type="text"
+            onChange={(e) => setName(e.target.value)}
+          ></input>
           <br></br>
-          แม่ให้เงินมา <input className="init" type="text"></input>
+          <label htmlFor="budget">แม่ให้เงินมา</label>
+          <input
+            id="budget"
+            className="init"
+            type="text"
+            onChange={(e) => {
+              e.target.value = e.target.value.replace(/\D/g, "");
+              setBudget(e.target.value);
+            }}
+          ></input>
         </div>
         <button className="start-button">ไปซื้อของกัน!</button>
-      </div>
+      </form>
     </div>
   );
 }

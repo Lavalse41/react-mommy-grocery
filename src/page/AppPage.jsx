@@ -2,18 +2,18 @@ import { useState } from "react";
 import { imageSrc } from "../data/imageSrc.js";
 import { groceries } from "../data/groceries.js";
 
-function AppPage() {
+function AppPage({ userName, userBudget }) {
   return (
     <div className="app">
       <div>
-        <Chatbox />
+        <Chatbox userName={userName} userBudget={userBudget} />
         <Summary />
       </div>
       <div className="form">
         <img id="backpages" src={imageSrc.backpage}></img>
         <div>
           <img id="balance-stamp" src={imageSrc.circle}></img>
-          <Balance />
+          <Balance userBudget={userBudget} />
         </div>
         <div id="form-paper">
           <Header />
@@ -25,21 +25,22 @@ function AppPage() {
   );
 }
 
-function Chatbox() {
+function Chatbox({ userName, userBudget }) {
   return (
     <div className="chatbox">
       <div className="msg-outer-wrapper">
         <img width="70px" height="70px" src={imageSrc.mommy}></img>
         <div className="msg-wrapper">
           <div className="msg first">
-            <p>ออม อยู่ข้างนอกใช่มั้ย ขากลับแวะตลาดหน่อย</p>
+            <p>{userName} อยู่ข้างนอกใช่มั้ย ขากลับแวะตลาดหน่อย</p>
           </div>
 
           <div className="msg-tail f1"></div>
           <div className="msg-tail b1"></div>
 
           <div className="msg">
-            ฝากซื้อของตามนี้ โอนไปให้แล้ว 1000 นะ เอาบิลกับเงินทอนมาให้ด้วย
+            ฝากซื้อของตามนี้ โอนไปให้แล้ว {userBudget} นะ
+            เอาบิลกับเงินทอนมาให้ด้วย
           </div>
           <div className="msg">..โทร</div>
         </div>
@@ -67,11 +68,11 @@ function Header() {
   );
 }
 
-function Balance() {
+function Balance({ userBudget }) {
   return (
     <div className="balance-container">
       <p>เงินคงเหลือ</p>
-      <h3>1,000</h3>
+      <h3>{userBudget}</h3>
     </div>
   );
 }

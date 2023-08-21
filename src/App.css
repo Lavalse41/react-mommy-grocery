@@ -23,6 +23,10 @@ h3 {
   font-size: var(--fs--sm);
 }
 
+label {
+  margin-right: 5px;
+}
+
 p,
 label {
   font-size: var(--fs--reg);
@@ -46,10 +50,12 @@ label {
   width: 600px;
   background-color: var(--accent--3);
   color: var(--text);
+  line-height: 2.5rem;
 }
 
 .init {
   background-color: var(--accent--3);
+  text-align: center;
 }
 
 .start-button {
@@ -262,6 +268,8 @@ li {
 }
 
 input {
+  font-family: "Maitree";
+  font-size: var(--fs--reg);
   border: none;
   border-bottom: solid 2px var(--text);
   background-color: var(--main--1);

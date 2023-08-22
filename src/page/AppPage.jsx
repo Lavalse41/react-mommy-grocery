@@ -57,6 +57,11 @@ function AppPage() {
   );
   balance = (balance - totalPrice).toLocaleString();
 
+  //clear all products
+  function handleClearList() {
+    setProducts([]);
+  }
+
   return (
     <div className="app">
       <div>
@@ -82,6 +87,7 @@ function AppPage() {
             onSubtractQuantity={subtractQuantity}
             onDeleteProduct={deleteProduct}
             onToggleProduct={handleToggleProduct}
+            onClearList={handleClearList}
           />
         </div>
       </div>
@@ -105,7 +111,7 @@ function Balance({ balance }) {
   return (
     <div className="balance-container">
       <p>เงินคงเหลือ</p>
-      <h3>{balance}</h3>
+      <h3 style={balance < 0 ? { color: "rgb(94, 3, 3)" } : {}}>{balance}</h3>
     </div>
   );
 }
@@ -194,6 +200,7 @@ function GroceryList({
   onSubtractQuantity,
   onDeleteProduct,
   onToggleProduct,
+  onClearList,
 }) {
   const [sortBy, setSortBy] = useState("input");
 
@@ -235,7 +242,9 @@ function GroceryList({
       <div className="sort-checkout">
         <div>back forth</div>
         <SortList setSortBy={setSortBy} />
-        <button className="checkout-button">รวมบิล</button>
+        <button className="checkout-button" onClick={onClearList}>
+          Clear
+        </button>
       </div>
     </div>
   );
@@ -307,31 +316,39 @@ function Summary({ boughtProducts, balance, totalPrice }) {
     <div className="summary">
       <div>
         <h2>รายการสินค้า</h2>
-        <ol>
+        <ul>
           {boughtProducts.map((item) => {
             return (
               <li key={item.id}>
                 <div>
-                  <div>
+                  <div id="left-container">
+                    <span id="margin">{item.quantity}</span>
                     {item.name}
-                    <span id="quantity">x</span>
-                    {item.quantity}
                   </div>
-                  <div id="price">{item.price}.-</div>
+                  <div id="right-container">
+                    {item.quantity > 1 ? (
+                      <span id="margin">{Number(item.price).toFixed(2)}</span>
+                    ) : (
+                      ""
+                    )}
+                    <span>{(item.price * item.quantity).toFixed(2)}</span>
+                  </div>
                 </div>
               </li>
             );
           })}
-        </ol>
+        </ul>
       </div>
-
-      <div className="total">
-        <h2>
-          ยอดรวม<span>{totalPrice}</span> บาท
-        </h2>
-        <h2>
-          เงินทอน<span>{balance}</span> บาท
-        </h2>
+      <div>
+        <hr></hr>
+        <div className="total">
+          <h2>
+            ยอดรวม<span>{totalPrice}</span> บาท
+          </h2>
+          <h2>
+            เงินทอน<span>{balance}</span> บาท
+          </h2>
+        </div>
       </div>
     </div>
   );

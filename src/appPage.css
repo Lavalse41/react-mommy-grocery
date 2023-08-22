@@ -166,8 +166,7 @@ h2 > span {
 }
 
 li {
-  margin-left: 15px;
-  text-indent: 5px;
+  list-style-type: none;
 }
 
 li > div {
@@ -175,10 +174,25 @@ li > div {
   justify-content: space-between;
 }
 
-#quantity {
-  margin: 0px 15px;
+#margin {
+  margin-right: 20px;
+  width: 20%;
+  /* background-color: rgba(0, 0, 0, 0.2); */
 }
 
+hr {
+  margin-bottom: 10px;
+  border: 1px dashed var(--text);
+}
+
+#left-container {
+  width: 60%;
+}
+
+#right-container {
+  text-align: right;
+  width: 40%;
+}
 /* form background */
 
 .form {

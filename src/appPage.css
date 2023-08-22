@@ -4,6 +4,7 @@
 html,
 select {
   font-family: "Maitree";
+  color: var(--text);
 }
 
 h1 {
@@ -38,33 +39,6 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-/* inputPage */
-
-.input-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 30px;
-  width: 600px;
-  background-color: var(--accent--3);
-  color: var(--text);
-  line-height: 2.5rem;
-}
-
-.init {
-  background-color: var(--accent--3);
-  text-align: center;
-}
-
-.start-button {
-  font-family: "Maitree";
-  font-size: var(--fs--mg);
-  border-radius: 7px;
-  margin-top: 20px;
-  padding: 5px 10px;
-  background-color: var(--main--1);
 }
 
 /* chatbox */
@@ -242,6 +216,7 @@ li {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: white;
 }
 
 /* header */
@@ -268,22 +243,23 @@ li {
 }
 
 input {
+  margin-right: 10px;
   font-family: "Maitree";
   font-size: var(--fs--reg);
   border: none;
   border-bottom: solid 2px var(--text);
   background-color: var(--main--1);
-  margin-right: 10px;
+  text-align: center;
 }
 
 #name,
-#image {
+#img {
   width: 200px;
 }
 
 #price,
-#number,
-#measure {
+#quantity,
+#unit {
   width: 52px;
 }
 
@@ -300,7 +276,7 @@ input {
   font-size: var(--fs--sm);
   padding: 20px 0px;
   padding-left: 30px;
-  max-height: 370px;
+  height: 370px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -340,23 +316,25 @@ input {
   position: relative;
   width: 22px;
   height: 22px;
+  border: solid var(--text) 2px;
+  color: var(--text);
+  background: white;
 }
 
 .toggle {
   left: -10px;
   top: -40px;
-  background: white;
-  border: solid black 2px;
 }
 
 .delete {
   left: 10px;
   bottom: 40px;
   border-radius: 50%;
+  /* font-family: ; */
 }
 
-.number,
-.measure,
+.quantity,
+.unit,
 .subtract {
   margin-left: 10px;
 }
@@ -365,6 +343,24 @@ input {
 .add {
   width: 15px;
   height: 15px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--accent--2);
+  color: white;
+  font-weight: 700;
+}
+
+/*toggle*/
+.bought {
+  background-color: var(--accent--2);
+  border: none;
+  color: var(--accent--3);
+}
+
+.bought-button {
+  background-color: var(--accent--3);
+  /* border: solid var(--accent--3) 2px; */
+  color: var(--accent--2);
 }
 
 /*sort + checkout*/

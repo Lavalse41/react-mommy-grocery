@@ -1,15 +1,23 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../inputPage.css";
 
 function InputPage({ onUserInput }) {
   const [name, setName] = useState("");
   const [budget, setBudget] = useState("");
+  const [isError, setIsError] = useState(false);
+
   const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
-    onUserInput(name, budget);
-    navigate("/grocery");
+
+    if (name && budget) {
+      onUserInput(name, budget);
+      navigate("/grocery");
+    } else {
+      setIsError(true);
+    }
   }
 
   return (
@@ -35,6 +43,7 @@ function InputPage({ onUserInput }) {
             }}
           ></input>
         </div>
+        {isError && <div className="error">โปรดใส่ชื่อและจำนวนเงิน</div>}
         <button className="start-button">ไปซื้อของกัน!</button>
       </form>
     </div>

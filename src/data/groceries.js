@@ -6,6 +6,7 @@ export const groceries = [
     price: 20,
     number: 2,
     unit: "หวี",
+    bought: false,
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ export const groceries = [
     price: 200,
     number: 2,
     unit: "ขวด",
+    bought: false,
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ export const groceries = [
     price: 400,
     number: 1,
     unit: "แผง",
+    bought: false,
   },
   {
     id: 4,
@@ -30,6 +33,7 @@ export const groceries = [
     price: 50,
     number: 1,
     unit: "กล่อง",
+    bought: false,
   },
   {
     id: 5,
@@ -38,6 +42,7 @@ export const groceries = [
     price: 3,
     number: 3,
     unit: "ขีด",
+    bought: false,
   },
   {
     id: 4,
@@ -46,6 +51,7 @@ export const groceries = [
     price: 50,
     number: 1,
     unit: "กล่อง",
+    bought: false,
   },
   {
     id: 5,
@@ -54,6 +60,7 @@ export const groceries = [
     price: 3,
     number: 3,
     unit: "ขีด",
+    bought: false,
   },
 ];
 

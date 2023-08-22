@@ -1,10 +1,11 @@
+import React from "react";
 import AppPage from "./page/AppPage.jsx";
 import InputPage from "./page/InputPage.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
-import "./app.css";
+import "./appPage.css";
 import "./root.css";
-// export const InputContext = React.createContext();
+export const UserInputContext = React.createContext();
 
 function App() {
   const [userName, setUserName] = useState("");
@@ -16,15 +17,17 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<InputPage onUserInput={handleUserInput} />} />
-        <Route
-          path="/grocery"
-          element={<AppPage userName={userName} userBudget={userBudget} />}
-        />
-      </Routes>
-    </BrowserRouter>
+    <UserInputContext.Provider value={{ userName, userBudget }}>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={<InputPage onUserInput={handleUserInput} />}
+          />
+          <Route path="/grocery" element={<AppPage />} />
+        </Routes>
+      </BrowserRouter>
+    </UserInputContext.Provider>
   );
 }
 

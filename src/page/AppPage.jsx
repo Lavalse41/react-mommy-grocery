@@ -1,16 +1,19 @@
 import { useState } from "react";
 import { imageSrc } from "../data/imageSrc.js";
-import { groceries } from "../data/groceries.js";
+// import { groceries } from "../data/groceries.js";
 import { useContext } from "react";
 import { UserInputContext } from "../App.jsx";
+import Chatbox from "../components/Chatbox.jsx";
 
 function AppPage() {
   const [products, setProducts] = useState([]);
 
+  //add product to list
   function addProduct(newProduct) {
     setProducts([...products, newProduct]);
   }
 
+  //toggle bought or not
   function handleToggleProduct(id) {
     setProducts((products) =>
       products.map((product) =>
@@ -19,18 +22,21 @@ function AppPage() {
     );
   }
 
+  //delete product
   function deleteProduct(index) {
     const newProducts = [...products];
     newProducts.splice(index, 1);
     setProducts(newProducts);
   }
 
+  //add product quantity
   function addQuantity(index) {
     const newProducts = [...products];
     newProducts[index].quantity++;
     setProducts(newProducts);
   }
 
+  //subtract product quantity
   function subtractQuantity(index) {
     const newProducts = [...products];
     if (newProducts[index].quantity !== 1) {
@@ -39,17 +45,33 @@ function AppPage() {
     }
   }
 
+  //calculate balance and total price
+  const context = useContext(UserInputContext);
+  let balance = Number(context.userBudget);
+
+  const newProducts = [...products];
+  const boughtProducts = newProducts.filter((item) => item.bought === true);
+  const totalPrice = boughtProducts.reduce(
+    (acc, item) => acc + item.quantity * item.price,
+    0
+  );
+  balance = (balance - totalPrice).toLocaleString();
+
   return (
     <div className="app">
       <div>
         <Chatbox />
-        <Summary />
+        <Summary
+          totalPrice={totalPrice}
+          balance={balance}
+          boughtProducts={boughtProducts}
+        />
       </div>
       <div className="form">
         <img id="backpages" src={imageSrc.backpage}></img>
         <div>
           <img id="balance-stamp" src={imageSrc.circle}></img>
-          <Balance />
+          <Balance balance={balance} />
         </div>
         <div id="form-paper">
           <Header />
@@ -67,40 +89,6 @@ function AppPage() {
   );
 }
 
-function Chatbox() {
-  const context = useContext(UserInputContext);
-  const formattedBalance = Number(context.userBudget).toLocaleString();
-
-  return (
-    <div className="chatbox">
-      <div className="msg-outer-wrapper">
-        <img width="70px" height="70px" src={imageSrc.mommy}></img>
-        <div className="msg-wrapper">
-          <div className="msg first">
-            <p>{context.userName} อยู่ข้างนอกใช่มั้ย ขากลับแวะตลาดหน่อย</p>
-          </div>
-
-          <div className="msg-tail f1"></div>
-          <div className="msg-tail b1"></div>
-
-          <div className="msg">
-            ฝากซื้อของตามนี้ โอนไปให้แล้ว {formattedBalance} นะ
-            เอาบิลกับเงินทอนมาให้ด้วย
-          </div>
-          <div className="msg">..โทร</div>
-        </div>
-      </div>
-
-      <div className="msg-outer-wrapper right">
-        <div className="msg-tail f2"></div>
-        <div className="msg-tail b2"></div>
-        <div className="msg first user">emoji</div>
-        <img width="70px" height="70px" src={imageSrc.child}></img>
-      </div>
-    </div>
-  );
-}
-
 function Header() {
   return (
     <div className="header">
@@ -113,14 +101,11 @@ function Header() {
   );
 }
 
-function Balance() {
-  const context = useContext(UserInputContext);
-  const formattedBalance = Number(context.userBudget).toLocaleString();
-
+function Balance({ balance }) {
   return (
     <div className="balance-container">
       <p>เงินคงเหลือ</p>
-      <h3>{formattedBalance}</h3>
+      <h3>{balance}</h3>
     </div>
   );
 }
@@ -210,12 +195,33 @@ function GroceryList({
   onDeleteProduct,
   onToggleProduct,
 }) {
+  const [sortBy, setSortBy] = useState("input");
+
+  let sortedProducts;
+
+  if (sortBy === "input") {
+    sortedProducts = products;
+  }
+
+  if (sortBy === "alphabet") {
+    sortedProducts = products
+      .slice()
+      .sort((a, b) => a.name.localeCompare(b.name));
+  }
+
+  if (sortBy === "bought") {
+    sortedProducts = products
+      .slice()
+      .sort((a, b) => Number(b.bought) - Number(a.bought));
+  }
+
   return (
     <div>
       <div className="grocery-list">
-        {products.map((item, index) => {
+        {sortedProducts.map((item, index) => {
           return (
             <Item
+              key={item.id}
               item={item}
               index={index}
               onAddQuantity={onAddQuantity}
@@ -228,7 +234,7 @@ function GroceryList({
       </div>
       <div className="sort-checkout">
         <div>back forth</div>
-        <SortList />
+        <SortList setSortBy={setSortBy} />
         <button className="checkout-button">รวมบิล</button>
       </div>
     </div>
@@ -286,34 +292,45 @@ function Item({
   );
 }
 
-function SortList() {
+function SortList({ setSortBy }) {
   return (
-    <select className="sort">
-      <option value="เรียงตามลำดับ">เรียงตามลำดับ</option>
-      <option>เรียงตามตัวอักษร</option>
-      <option>เรียงตามสถานะ</option>
+    <select className="sort" onChange={(e) => setSortBy(e.target.value)}>
+      <option value="input">เรียงตามลำดับ</option>
+      <option value="alphabet">เรียงตามตัวอักษร</option>
+      <option value="bought">เรียงตามสถานะ</option>
     </select>
   );
 }
 
-function Summary() {
+function Summary({ boughtProducts, balance, totalPrice }) {
   return (
     <div className="summary">
       <div>
         <h2>รายการสินค้า</h2>
-        <ul>
-          <li>
-            กล้วยหอม<span>60.-</span>
-          </li>
-        </ul>
+        <ol>
+          {boughtProducts.map((item) => {
+            return (
+              <li key={item.id}>
+                <div>
+                  <div>
+                    {item.name}
+                    <span id="quantity">x</span>
+                    {item.quantity}
+                  </div>
+                  <div id="price">{item.price}.-</div>
+                </div>
+              </li>
+            );
+          })}
+        </ol>
       </div>
 
       <div className="total">
         <h2>
-          ยอดรวม<span>0</span> บาท
+          ยอดรวม<span>{totalPrice}</span> บาท
         </h2>
         <h2>
-          เงินทอน<span>0</span> บาท
+          เงินทอน<span>{balance}</span> บาท
         </h2>
       </div>
     </div>

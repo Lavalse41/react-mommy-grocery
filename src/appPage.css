@@ -168,7 +168,15 @@ h2 > span {
 li {
   margin-left: 15px;
   text-indent: 5px;
-  list-style-type: decimal;
+}
+
+li > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+#quantity {
+  margin: 0px 15px;
 }
 
 /* form background */
@@ -303,7 +311,7 @@ input {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 170px;
+  width: 160px;
   margin-left: 15px;
 }
 

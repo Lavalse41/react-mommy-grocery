@@ -159,6 +159,7 @@ img {
 .total > h2 {
   display: inline-block;
   background-color: var(--accent--4);
+  font-size: var(--fs--md);
 }
 
 h2 > span {
@@ -171,13 +172,6 @@ li {
 
 li > div {
   display: flex;
-  justify-content: space-between;
-}
-
-#margin {
-  margin-right: 20px;
-  width: 20%;
-  /* background-color: rgba(0, 0, 0, 0.2); */
 }
 
 hr {
@@ -185,16 +179,29 @@ hr {
   border: 1px dashed var(--text);
 }
 
-#left-container {
-  width: 60%;
+.quantity-container {
+  width: 5%;
+  margin-right: 5%;
 }
-
-#right-container {
-  text-align: right;
+.name-container {
   width: 40%;
+  margin-right: 5%;
 }
-/* form background */
+.price-container {
+  width: 20%;
+  margin-right: 5%;
+}
+.total-container {
+  width: 20%;
+}
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
+}
 
+/* form background */
 .form {
   position: relative;
 }
@@ -287,9 +294,11 @@ input {
 
 #send-button {
   background-color: var(--accent--1);
-  border-radius: 7px;
-  padding: 5px 10px;
+  border-radius: 5px;
+  padding: 0px 10px;
   border: var(--text) solid 2px;
+  font-family: "Maitree";
+  font-size: var(--fs--reg);
 }
 
 /* grocery-list */
@@ -352,7 +361,13 @@ input {
   left: 10px;
   bottom: 40px;
   border-radius: 50%;
-  /* font-family: ; */
+  font-size: var(--fs--reg);
+}
+
+button,
+select,
+.toggle:hover {
+  cursor: pointer;
 }
 
 .quantity,
@@ -376,7 +391,7 @@ input {
 .bought {
   background-color: var(--accent--2);
   border: none;
-  color: var(--accent--3);
+  color: #e6eeb5;
 }
 
 .bought-button {

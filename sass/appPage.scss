@@ -34,24 +34,11 @@ label {
 }
 
 .app {
-  background-color: rgba(24, 72, 44, 0.95);
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.input-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.logo {
-  font-size: 80px;
-  color: aliceblue;
-  padding-bottom: 50px;
 }
 
 /* chatbox */
@@ -60,20 +47,6 @@ label {
   flex-direction: column;
   align-items: space-between;
   /* border: #d3dba4 solid 1px; */
-}
-
-#phone-container {
-  border-radius: 100%;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #bfcd66;
-}
-
-#phone {
-  opacity: 60%;
 }
 
 .msg-outer-wrapper {
@@ -100,11 +73,6 @@ label {
   width: 313px;
   border-radius: 15px;
   background-color: var(--accent--1);
-  display: flex;
-}
-
-.msg span {
-  margin-left: 15px;
 }
 
 .first {
@@ -114,9 +82,9 @@ label {
 
 .user {
   width: unset;
-  padding: 10px 13px;
+  padding: 8px 13px;
   margin-right: 95px;
-  font-family: "Noto Color Emoji", sans-serif;
+  font-family: "Noto";
 }
 
 .msg-tail {
@@ -196,7 +164,7 @@ img {
 }
 
 h2 > span {
-  margin: 0 15px;
+  margin-left: 20px;
 }
 
 li {
@@ -385,11 +353,6 @@ input {
   background: white;
 }
 
-.subtract > span {
-  position: relative;
-  top: -5%;
-}
-
 .toggle {
   left: -10px;
   top: -40px;
@@ -464,6 +427,6 @@ select,
   border: var(--text) solid 2px;
 }
 
-#hidden {
+.hidden {
   color: white;
 }

@@ -1,12 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&family=Noto+Color+Emoji&display=swap");
+
 .input-container {
+  margin-top: 70px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 30px;
-  width: 600px;
+  width: 450px;
   background-color: var(--accent--3);
   color: var(--text);
   line-height: 2.5rem;
+  border-radius: 10px;
 }
 
 .init {
@@ -25,8 +29,76 @@
 
 .error {
   position: absolute;
-  top: 360px;
+  top: 580px;
   font-size: var(--fs--sm);
   color: rgb(180, 0, 0);
   font-weight: 700;
+}
+
+.logo {
+  font-family: "Noto Color Emoji", sans-serif;
+}
+
+.logo-text {
+  font-family: "Love Ya Like A Sister", cursive;
+  color: white;
+  font-size: 150px;
+  text-align: center;
+  line-height: 9rem;
+  letter-spacing: 0.25rem;
+}
+
+.logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#emoji1 {
+  position: absolute;
+  top: 12%;
+  left: 10%;
+  transform: rotate(-0.05turn);
+}
+
+#emoji4 {
+  position: absolute;
+  top: 35%;
+  left: 18%;
+  transform: rotate(15deg);
+}
+
+#emoji5 {
+  position: absolute;
+  top: 70%;
+  left: 8%;
+  transform: rotate(15deg);
+}
+
+#emoji2 {
+  position: absolute;
+  position: absolute;
+  top: 40%;
+  left: 78%;
+  transform: rotate(5deg);
+}
+
+#emoji6 {
+  position: absolute;
+  position: absolute;
+  top: 70%;
+  left: 83%;
+  transform: rotate(60deg);
+}
+
+#emoji3 {
+  position: absolute;
+  position: absolute;
+  top: 10%;
+  left: 80%;
+  transform: rotate(5deg);
+}
+
+input[type="text"] {
+  width: 130px;
 }

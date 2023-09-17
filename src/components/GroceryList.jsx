@@ -48,7 +48,7 @@ function GroceryList({
         })}
       </div>
       <div className="sort-checkout">
-        <div>back forth</div>
+        <div id="hidden">back forth</div>
         <SortList setSortBy={setSortBy} />
         <button className="checkout-button" onClick={onClearList}>
           Clear

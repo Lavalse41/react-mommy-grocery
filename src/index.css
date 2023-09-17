@@ -5,5 +5,7 @@
 }
 
 body {
-  background-color: var(--bg);
+  background-image: url("https://res.cloudinary.com/dluc2m7kg/image/upload/v1694861629/mommy-grocery/nrd-D6Tu_L3chLE-unsplash_qhjyts.jpg");
+  background-size: cover;
+  background-position: center;
 }

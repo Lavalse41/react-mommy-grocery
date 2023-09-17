@@ -16,6 +16,7 @@ function App() {
     setUserBudget(budget);
   }
 
+
   return (
     <UserInputContext.Provider value={{ userName, userBudget }}>
       <BrowserRouter>

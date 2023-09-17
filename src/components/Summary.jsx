@@ -11,10 +11,21 @@ function Summary({ boughtProducts, balance, totalPrice }) {
                   <div className="quantity-container left">{item.quantity}</div>
                   <div className="name-container left">{item.name}</div>
                   <div className="price-container right">
-                    {item.quantity > 1 ? Number(item.price).toFixed(2) : ""}
+                    {item.quantity > 1 &&
+                      Number(item.price)
+                        .toLocaleString("en-US", {
+                          style: "currency",
+                          currency: "THB",
+                        })
+                        .replace("THB", "")}
                   </div>
                   <div className="total-container right">
-                    {(item.price * item.quantity).toFixed(2)}
+                    {(item.price * item.quantity)
+                      .toLocaleString("en-US", {
+                        style: "currency",
+                        currency: "THB",
+                      })
+                      .replace("THB", "")}
                   </div>
                 </div>
               </li>
@@ -26,10 +37,11 @@ function Summary({ boughtProducts, balance, totalPrice }) {
         <hr></hr>
         <div className="total">
           <h2>
-            ยอดรวม<span>{totalPrice}</span> บาท
+            ยอดรวม
+            <span>{totalPrice.toLocaleString()}</span>บาท
           </h2>
           <h2>
-            เงินทอน<span>{balance}</span> บาท
+            เงินทอน<span>{balance.toLocaleString()}</span>บาท
           </h2>
         </div>
       </div>

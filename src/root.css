@@ -1,0 +1,26 @@
+:root {
+  /*color*/
+  --bg: #20442f;
+  --main--1: #ed752f;
+  --main--2: #7458cc;
+  --accent--1: #90a537;
+  --accent--2: #b5c750;
+  --accent--3: #d3dba4;
+  --accent--4: #ddbe6a;
+  --accent--5: #8d9aed;
+
+  --text: #261803;
+
+  /*font*/
+  --fw--reg: 400;
+  --fw--bold: 700;
+
+  --fs--sm: 14px;
+  --fs--reg: 16px;
+  --fs--md: 27px;
+  --fs--lg: 30px;
+  --fs--xl: 51px;
+
+  /*round*/
+  --round: ;
+}

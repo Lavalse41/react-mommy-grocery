@@ -1,0 +1,432 @@
+@import url("https://fonts.googleapis.com/css2?family=Maitree:wght@600;700&family=Noto+Sans:wght@500;700&display=swap");
+
+/* used by all component */
+html,
+select {
+  font-family: "Maitree";
+  color: var(--text);
+}
+
+h1 {
+  font-size: var(--fs--xl);
+  font-family: "Noto sans";
+}
+
+h2 {
+  font-size: var(--fs--lg);
+}
+
+h3 {
+  font-size: var(--fs--md);
+}
+
+.sm {
+  font-size: var(--fs--sm);
+}
+
+label {
+  margin-right: 5px;
+}
+
+p,
+label {
+  font-size: var(--fs--reg);
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* chatbox */
+.chatbox {
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  /* border: #d3dba4 solid 1px; */
+}
+
+.msg-outer-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.msg-outer-wrapper:first-child {
+  margin-bottom: 20px;
+}
+
+.right {
+  display: flex;
+  justify-content: end;
+}
+
+.msg-wrapper {
+  margin: 0px 20px;
+}
+
+.msg {
+  padding: 8px 13px;
+  margin-bottom: 15px;
+  width: 313px;
+  border-radius: 15px;
+  background-color: var(--accent--1);
+}
+
+.first {
+  position: absolute;
+  z-index: 1;
+}
+
+.user {
+  width: unset;
+  padding: 8px 13px;
+  margin-right: 95px;
+  font-family: "Noto";
+}
+
+.msg-tail {
+  position: relative;
+  top: 40px;
+  left: -10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 80%;
+  background-color: var(--accent--1);
+}
+
+.msg-tail {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 80%;
+  background-color: var(--accent--1);
+}
+
+.f1 {
+  top: 40px;
+  left: -14px;
+}
+
+.b1 {
+  height: 50px;
+  top: 0px;
+  left: -27px;
+  background-color: var(--bg);
+}
+
+.f2 {
+  top: 8px;
+  left: 20px;
+}
+
+.b2 {
+  height: 50px;
+  top: -6px;
+  left: 1px;
+  background-color: var(--bg);
+}
+
+img {
+  position: relative;
+  z-index: 2;
+}
+
+/* summary */
+.summary {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 30px;
+  width: 400px;
+  height: 400px;
+  background-color: var(--accent--3);
+  transform: rotate(-5deg);
+  filter: drop-shadow(8px 8px 5px rgba(0, 0, 0, 0.2));
+}
+
+.total {
+  text-align: end;
+}
+
+.total > h2:first-child {
+  display: inline-block;
+  background-color: var(--accent--5);
+  margin-bottom: 8px;
+}
+
+.total > h2 {
+  display: inline-block;
+  background-color: var(--accent--4);
+  font-size: var(--fs--md);
+}
+
+h2 > span {
+  margin-left: 20px;
+}
+
+li {
+  list-style-type: none;
+}
+
+li > div {
+  display: flex;
+}
+
+hr {
+  margin-bottom: 10px;
+  border: 1px dashed var(--text);
+}
+
+.quantity-container {
+  width: 5%;
+  margin-right: 5%;
+}
+.name-container {
+  width: 40%;
+  margin-right: 5%;
+}
+.price-container {
+  width: 20%;
+  margin-right: 5%;
+}
+.total-container {
+  width: 20%;
+}
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
+}
+
+/* form background */
+.form {
+  position: relative;
+}
+
+#backpages {
+  position: relative;
+  bottom: 6px;
+  left: 20px;
+  height: 650px;
+  width: 1000px;
+  z-index: 1;
+  filter: drop-shadow(8px 8px 10px rgba(0, 0, 0, 0.2));
+}
+
+#form-paper {
+  position: absolute;
+  z-index: 2;
+  top: 0px;
+  left: 40px;
+  width: 980px;
+  background-color: white;
+  z-index: 2;
+}
+
+/* balance */
+#balance-stamp {
+  position: absolute;
+  top: -23px;
+  left: 878px;
+  height: 170px;
+  z-index: 3;
+}
+
+.balance-container {
+  position: absolute;
+  width: 170px;
+  top: 30px;
+  left: 880px;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+/* header */
+.header {
+  padding: 15px 30px;
+  width: 750px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.header > p {
+  padding-bottom: 8px;
+}
+
+/* form */
+
+.form-wrapper {
+  padding: 10px 30px;
+  height: 50px;
+  background-color: var(--main--1);
+  display: flex;
+  justify-content: space-between;
+}
+
+input {
+  margin-right: 10px;
+  font-family: "Maitree";
+  font-size: var(--fs--reg);
+  border: none;
+  border-bottom: solid 2px var(--text);
+  background-color: var(--main--1);
+  text-align: center;
+}
+
+#name,
+#img {
+  width: 200px;
+}
+
+#price,
+#quantity,
+#unit {
+  width: 52px;
+}
+
+#send-button {
+  background-color: var(--accent--1);
+  border-radius: 5px;
+  padding: 0px 10px;
+  border: var(--text) solid 2px;
+  font-family: "Maitree";
+  font-size: var(--fs--reg);
+}
+
+/* grocery-list */
+
+.grocery-list {
+  font-size: var(--fs--sm);
+  padding: 20px 0px;
+  padding-left: 30px;
+  height: 370px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.grocery-container > img {
+  width: 58px;
+  height: 58px;
+  object-fit: cover;
+  border: #d3dba4 solid 1px;
+}
+
+.grocery-container {
+  margin-right: 25px;
+  margin-bottom: 20px;
+  height: 95px;
+  border: var(--text) solid 2px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.detail-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 160px;
+  margin-left: 15px;
+}
+
+.detail-container > div:first-child {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-button {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  border: solid var(--text) 2px;
+  color: var(--text);
+  background: white;
+}
+
+.toggle {
+  left: -10px;
+  top: -40px;
+}
+
+.delete {
+  left: 10px;
+  bottom: 40px;
+  border-radius: 50%;
+  font-size: var(--fs--reg);
+}
+
+button,
+select,
+.toggle:hover {
+  cursor: pointer;
+}
+
+.quantity,
+.unit,
+.subtract {
+  margin-left: 10px;
+}
+
+.subtract,
+.add {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--accent--2);
+  color: white;
+  font-weight: 700;
+}
+
+/*toggle*/
+.bought {
+  background-color: var(--accent--2);
+  border: none;
+  color: #e6eeb5;
+}
+
+.bought-button {
+  background-color: var(--accent--3);
+  /* border: solid var(--accent--3) 2px; */
+  color: var(--accent--2);
+}
+
+/*sort + checkout*/
+
+.checkout-button {
+  font-family: "Maitree";
+  font-size: var(--fs--reg);
+  padding: 3px 20px;
+  border-radius: 5px;
+  background-color: var(--main--2);
+}
+
+.sort-checkout {
+  margin: 0px 30px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.sort {
+  background-color: white;
+  border-radius: 8px;
+  height: 35px;
+  padding: 0px 10px;
+  border: var(--text) solid 2px;
+}
+
+.hidden {
+  color: white;
+}

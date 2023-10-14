@@ -62,14 +62,8 @@ function Form({ onAddProduct }) {
             onChange={(e) => setName(e.target.value)}
           ></input>
 
-          {/* <input id="img" type="file" onChange={handleUploadFile}></input> */}
           <label htmlFor="img">รูป</label>
-          <input
-            id="img"
-            type="file"
-            className="file-input w-full max-w-xs"
-            onChange={handleUploadFile}
-          />
+          <input id="img" type="file" onChange={handleUploadFile}></input>
 
           <label htmlFor="price">ราคา (ชิ้น)</label>
           <input

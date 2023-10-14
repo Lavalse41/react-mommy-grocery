@@ -11,9 +11,10 @@
     "complie:sass": "node-sass sass/appPage.scss src/appPage.css -w"
   },
   "dependencies": {
-    "node-sass": "^9.0.0",
+    "axios": "^1.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-paginate": "^8.2.0",
     "react-router-dom": "^6.15.0"
   },
   "devDependencies": {

@@ -1,22 +1,35 @@
 import { useState } from "react";
+import axios from "axios";
 
 function Form({ onAddProduct }) {
   const [name, setName] = useState("");
-  const [img, setImg] = useState(
-    "https://i.ibb.co/cLMMVfk/mango-sticky-rice.jpg"
-  );
+  const [img, setImg] = useState();
   const [price, setPrice] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [unit, setUnit] = useState("ชิ้น");
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("file", img);
+    formData.append("upload_preset", "momgrocery-upload");
+    formData.append("api_key", import.meta.env.CLOUDINARY_API_KEY);
+
+    const result = await fetch(
+      "https://api.cloudinary.com/v1_1/dluc2m7kg/image/upload",
+      { method: "POST", body: formData }
+    ).then((r) => r.json());
+
+    // console.log(result.secure_url);
 
     if (!name) return;
     const newProduct = {
       id: Date.now(),
       name,
-      img,
+      img:
+        result.secure_url ||
+        "https://res.cloudinary.com/dluc2m7kg/image/upload/v1697108748/mommy-grocery/icon/default-bw_a7yblh.jpg",
       price,
       quantity,
       unit,
@@ -26,10 +39,15 @@ function Form({ onAddProduct }) {
     onAddProduct(newProduct);
 
     setName("");
-    setImg("https://i.ibb.co/cLMMVfk/mango-sticky-rice.jpg");
+    setImg();
     setPrice("");
     setQuantity(1);
     setUnit("ชิ้น");
+  }
+
+  function handleUploadFile(e) {
+    const target = e.target;
+    setImg(target.files[0]);
   }
 
   return (
@@ -43,13 +61,16 @@ function Form({ onAddProduct }) {
             value={name}
             onChange={(e) => setName(e.target.value)}
           ></input>
+
+          {/* <input id="img" type="file" onChange={handleUploadFile}></input> */}
           <label htmlFor="img">รูป</label>
           <input
             id="img"
-            type="text"
-            value={img}
-            onChange={(e) => setImg(e.target.value)}
-          ></input>
+            type="file"
+            className="file-input w-full max-w-xs"
+            onChange={handleUploadFile}
+          />
+
           <label htmlFor="price">ราคา (ชิ้น)</label>
           <input
             id="price"

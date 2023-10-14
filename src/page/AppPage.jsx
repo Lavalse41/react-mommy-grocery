@@ -7,6 +7,10 @@ import Balance from "../components/Balance.jsx";
 import Form from "../components/Form.jsx";
 import GroceryList from "../components/GroceryList.jsx";
 import Summary from "../components/Summary.jsx";
+import ReactPaginate from "react-paginate";
+import SortList from "../components/SortList.jsx";
+import DisplayOption from "../components/DisplayOption.jsx";
+import { mockData } from "../data/mockData.js";
 
 function AppPage() {
   const [products, setProducts] = useState([]);
@@ -65,6 +69,49 @@ function AppPage() {
     setProducts([]);
   }
 
+  //sort Products
+  const [sortBy, setSortBy] = useState("input");
+
+  let sortedProducts;
+
+  if (sortBy === "input") {
+    sortedProducts = mockData;
+  }
+
+  if (sortBy === "alphabet") {
+    sortedProducts = products
+      .slice()
+      .sort((a, b) => a.name.localeCompare(b.name));
+  }
+
+  if (sortBy === "bought") {
+    sortedProducts = mockData
+      .slice()
+      .sort((a, b) => Number(b.bought) - Number(a.bought));
+  }
+
+  //change display option
+  const [displayOption, setDisplayOption] = useState("card");
+
+  //set pagination
+  const [productOffset, setProductOffset] = useState(0);
+
+  let productsPerPage;
+  displayOption === "card"
+    ? (productsPerPage = 9)
+    : displayOption === "list"
+    ? (productsPerPage = 18)
+    : "";
+
+  const endOffset = productOffset + productsPerPage;
+  const currentProducts = sortedProducts.slice(productOffset, endOffset);
+  const pageCount = Math.ceil(sortedProducts.length / productsPerPage);
+
+  function handlePageClick(e) {
+    const newOffset = (e.selected * productsPerPage) % sortedProducts.length;
+    setProductOffset(newOffset);
+  }
+
   return (
     <div className="app">
       <div>
@@ -85,13 +132,35 @@ function AppPage() {
           <Header />
           <Form onAddProduct={addProduct} />
           <GroceryList
-            products={products}
+            currentProducts={currentProducts}
             onAddQuantity={addQuantity}
             onSubtractQuantity={subtractQuantity}
             onDeleteProduct={deleteProduct}
             onToggleProduct={handleToggleProduct}
-            onClearList={handleClearList}
+            displayOption={displayOption}
           />
+          <div className="sort-checkout">
+            <div style={{ display: "flex", gap: "20px" }}>
+              <DisplayOption
+                setDisplayOption={setDisplayOption}
+                displayOption={displayOption}
+              />
+              <SortList setSortBy={setSortBy} />
+            </div>
+            <ReactPaginate
+              breakLabel="..."
+              nextLabel=">"
+              onPageChange={handlePageClick}
+              pageRangeDisplayed={5}
+              pageCount={pageCount}
+              previousLabel="<"
+              renderOnZeroPageCount={null}
+              className="pagination-container"
+            />
+            <button className="checkout-button" onClick={handleClearList}>
+              Clear
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -130,16 +130,18 @@ function AppPage() {
           <Balance balance={balance} />
         </div>
         <div id="form-paper">
-          <Header />
-          <Form onAddProduct={addProduct} />
-          <GroceryList
-            currentProducts={currentProducts}
-            onAddQuantity={addQuantity}
-            onSubtractQuantity={subtractQuantity}
-            onDeleteProduct={deleteProduct}
-            onToggleProduct={handleToggleProduct}
-            displayOption={displayOption}
-          />
+          <div>
+            <Header />
+            <Form onAddProduct={addProduct} />
+            <GroceryList
+              currentProducts={currentProducts}
+              onAddQuantity={addQuantity}
+              onSubtractQuantity={subtractQuantity}
+              onDeleteProduct={deleteProduct}
+              onToggleProduct={handleToggleProduct}
+              displayOption={displayOption}
+            />
+          </div>
           <div className="sort-checkout">
             <div style={{ display: "flex", gap: "20px" }}>
               <DisplayOption

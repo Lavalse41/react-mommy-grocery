@@ -254,6 +254,10 @@ hr {
   width: 980px;
   background-color: white;
   z-index: 2;
+  height: 625px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 /* balance */
@@ -309,6 +313,7 @@ input {
   border-bottom: solid 2px var(--text);
   background-color: var(--main--1);
   text-align: center;
+  height: 26px;
 }
 
 #name,
@@ -339,22 +344,24 @@ input {
 
 .grocery-list {
   font-size: var(--fs--sm);
-  padding: 20px 0px;
+  padding: 20px 0 0px 0px;
   padding-left: 30px;
-  height: 370px;
+  /* height: 370px; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-left: 8px;
 }
 
 .grocery-container > img {
   width: 58px;
   height: 58px;
   object-fit: cover;
+  margin-left: 22px;
 }
 
 .grocery-container {
-  margin-right: 25px;
+  margin-right: 30px;
   margin-bottom: 20px;
   height: 95px;
   border: var(--text) solid 2px;
@@ -394,11 +401,6 @@ input {
   top: -5%;
 }
 
-.toggle {
-  left: -10px;
-  top: -40px;
-}
-
 .delete {
   left: 10px;
   bottom: 40px;
@@ -411,8 +413,9 @@ input {
 }
 
 .delete-list {
+  position: absolute;
   border: none;
-  margin-left: 10px;
+  left: 255px;
 }
 
 button,
@@ -441,7 +444,7 @@ select,
 /*toggle*/
 .bought {
   background-color: var(--accent--2);
-  border: none;
+  border: var(--accent--2) solid 2px;
   color: #e6eeb5;
 }
 
@@ -519,9 +522,11 @@ select,
 /*item list*/
 
 .item-list {
+  position: relative;
   display: flex;
-  padding: 0 100px 20px 0;
-  flex-wrap: wrap;
+  width: 240px;
+  margin-right: 70px;
+  margin-bottom: 15px;
 }
 
 .detail-container-list {
@@ -566,15 +571,34 @@ select,
 }
 
 /*check box*/
-/* .form-check-input:checked {
-  color: red; /* Replace with your desired color */
 
-/* input[type="text"]:focus {
-  border: none;
-} */
+.toggle {
+  position: relative;
+  left: -10px;
+  bottom: 50px;
+}
+
+.check-input {
+  position: absolute;
+  opacity: 1;
+}
+
+.check-input:checked::before {
+  content: "✔";
+  color: #ffffff;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(9, 74, 18);
+  border: 1px solid var(--text);
+  border-radius: 2px;
+}
 
 /*file input*/
-.file-input {
+.file-input-container {
   display: flex;
   overflow: hidden;
 }
@@ -585,7 +609,7 @@ select,
   cursor: pointer;
 }
 
-.input-label {
+.file-input-label {
   margin-left: 5px;
   display: inline;
   background-color: #dca057;
@@ -593,11 +617,18 @@ select,
   padding: 0px 10px;
   border: var(--text) solid 2px;
   cursor: pointer;
+  font-size: var(--fs--sm);
   color: #000000;
+  height: 28px;
 }
 
 .file-name {
   border-bottom: var(--text) solid 2px;
   width: 100px;
   text-align: center;
+  height: 26px;
+}
+
+.margin-left {
+  margin-left: 40px;
 }

@@ -16,14 +16,15 @@ function Item({
       }
     >
       {/* checkbox */}
-      <input
-        type="checkbox"
-        className={
-          displayOption === "card" ? `card-button toggle` : `card-button`
-        }
-        value={item.bought}
-        onChange={() => onToggleProduct(item.id)}
-      ></input>
+      <div className={displayOption === "card" ? `toggle` : ``}>
+        <input
+          type="checkbox"
+          className="check-input card-button"
+          id="customCheckbox"
+          value={item.bought}
+          onChange={() => onToggleProduct(item.id)}
+        ></input>
+      </div>
 
       {/* image */}
       {displayOption === "card" ? <img src={item.img}></img> : ""}
@@ -36,10 +37,11 @@ function Item({
         }
       >
         {/* name */}
-        <div>
-          <span className="text-orange">{item.name}</span>
+        <div className={displayOption === "list" ? `margin-left` : ``}>
+          <span>{item.name}</span>
           <span className={displayOption === "card" ? `` : `price-list`}>
-            {item.price}.-
+            {parseFloat(item.price).toLocaleString("en-US")}
+            .-
           </span>
         </div>
 

@@ -63,9 +63,9 @@ function Form({ onAddProduct }) {
         ></input>
 
         <label htmlFor="img">รูป</label>
-        <div className="file-input">
+        <div className="file-input-container">
           <span className="file-name">{img && `${img.name}`}</span>
-          <label htmlFor="img" className="input-label">
+          <label htmlFor="img" className="file-input-label">
             Upload
           </label>
           <input
@@ -83,6 +83,7 @@ function Form({ onAddProduct }) {
           value={price}
           onChange={(e) => setPrice(e.target.value)}
         ></input>
+
         <label htmlFor="quantity">จำนวน</label>
         <input
           id="quantity"
@@ -90,6 +91,7 @@ function Form({ onAddProduct }) {
           value={quantity}
           onChange={(e) => setQuantity(e.target.value)}
         ></input>
+
         <label htmlFor="unit">หน่วย</label>
         <input
           id="unit"

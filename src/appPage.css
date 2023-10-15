@@ -312,14 +312,14 @@ input {
 }
 
 #name,
-#img {
-  width: 200px;
+#image {
+  width: 180px;
 }
 
 #price,
 #quantity,
 #unit {
-  width: 52px;
+  width: 55px;
 }
 
 #send-button {
@@ -572,3 +572,32 @@ select,
 /* input[type="text"]:focus {
   border: none;
 } */
+
+/*file input*/
+.file-input {
+  display: flex;
+  overflow: hidden;
+}
+
+.input-file {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.input-label {
+  margin-left: 5px;
+  display: inline;
+  background-color: #dca057;
+  border-radius: 5px;
+  padding: 0px 10px;
+  border: var(--text) solid 2px;
+  cursor: pointer;
+  color: #000000;
+}
+
+.file-name {
+  border-bottom: var(--text) solid 2px;
+  width: 100px;
+  text-align: center;
+}

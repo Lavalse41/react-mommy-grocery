@@ -75,7 +75,8 @@ function AppPage() {
   let sortedProducts;
 
   if (sortBy === "input") {
-    sortedProducts = mockData;
+    sortedProducts = products;
+    // sortedProducts = mockData;
   }
 
   if (sortBy === "alphabet") {
@@ -85,7 +86,7 @@ function AppPage() {
   }
 
   if (sortBy === "bought") {
-    sortedProducts = mockData
+    sortedProducts = products
       .slice()
       .sort((a, b) => Number(b.bought) - Number(a.bought));
   }

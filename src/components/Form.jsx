@@ -21,7 +21,7 @@ function Form({ onAddProduct }) {
       { method: "POST", body: formData }
     ).then((r) => r.json());
 
-    // console.log(result.secure_url);
+    console.log(result);
 
     if (!name) return;
     const newProduct = {
@@ -37,6 +37,7 @@ function Form({ onAddProduct }) {
     };
 
     onAddProduct(newProduct);
+    // console.log(img);
 
     setName("");
     setImg();
@@ -53,40 +54,50 @@ function Form({ onAddProduct }) {
   return (
     <div className="">
       <form className="form-wrapper" onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">ชื่อ</label>
-          <input
-            id="name"
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          ></input>
+        <label htmlFor="name">ชื่อ</label>
+        <input
+          id="name"
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        ></input>
 
-          <label htmlFor="img">รูป</label>
-          <input id="img" type="file" onChange={handleUploadFile}></input>
-
-          <label htmlFor="price">ราคา (ชิ้น)</label>
+        <label htmlFor="img">รูป</label>
+        <div className="file-input">
+          <span className="file-name">{img && `${img.name}`}</span>
+          <label htmlFor="img" className="input-label">
+            Upload
+          </label>
           <input
-            id="price"
-            type="text"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-          ></input>
-          <label htmlFor="quantity">จำนวน</label>
-          <input
-            id="quantity"
-            type="number"
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
-          ></input>
-          <label htmlFor="unit">หน่วย</label>
-          <input
-            id="unit"
-            type="text"
-            value={unit}
-            onChange={(e) => setUnit(e.target.value)}
+            id="image"
+            type="file"
+            onChange={handleUploadFile}
+            className="input-file"
           ></input>
         </div>
+
+        <label htmlFor="price">ราคา (ชิ้น)</label>
+        <input
+          id="price"
+          type="text"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+        ></input>
+        <label htmlFor="quantity">จำนวน</label>
+        <input
+          id="quantity"
+          type="number"
+          value={quantity}
+          onChange={(e) => setQuantity(e.target.value)}
+        ></input>
+        <label htmlFor="unit">หน่วย</label>
+        <input
+          id="unit"
+          type="text"
+          value={unit}
+          onChange={(e) => setUnit(e.target.value)}
+        ></input>
+
         <div>
           <button id="send-button">Send</button>
         </div>

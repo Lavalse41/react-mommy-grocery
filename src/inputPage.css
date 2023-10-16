@@ -66,47 +66,66 @@
 
 #emoji1 {
   position: absolute;
-  top: 12%;
+  top: 9%;
   left: 10%;
   transform: rotate(-0.05turn);
+  font-size: 60px;
 }
 
 #emoji4 {
   position: absolute;
-  top: 35%;
+  top: 31%;
   left: 18%;
   transform: rotate(15deg);
+  font-size: 60px;
 }
 
 #emoji5 {
   position: absolute;
-  top: 70%;
+  top: 62%;
   left: 8%;
   transform: rotate(15deg);
+  font-size: 60px;
+}
+
+#emoji7 {
+  position: absolute;
+  top: 80%;
+  left: 18%;
+  transform: rotate(-15deg);
+  font-size: 60px;
+}
+
+#emoji8 {
+  position: absolute;
+  top: 83%;
+  left: 78%;
+  transform: rotate(-15deg);
+  font-size: 60px;
 }
 
 #emoji2 {
   position: absolute;
-  position: absolute;
   top: 40%;
   left: 78%;
   transform: rotate(5deg);
+  font-size: 60px;
 }
 
 #emoji6 {
   position: absolute;
-  position: absolute;
-  top: 70%;
-  left: 83%;
+  top: 58%;
+  left: 85%;
   transform: rotate(60deg);
+  font-size: 60px;
 }
 
 #emoji3 {
   position: absolute;
-  position: absolute;
   top: 10%;
   left: 80%;
   transform: rotate(5deg);
+  font-size: 60px;
 }
 
 input[type="text"] {

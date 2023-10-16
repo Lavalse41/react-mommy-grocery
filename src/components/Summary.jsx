@@ -1,6 +1,9 @@
 function Summary({ boughtProducts, balance, totalPrice }) {
   return (
     <div className="summary">
+      <span className="logo" id="emoji9">
+        💸
+      </span>
       <div>
         <h2>รายการสินค้า</h2>
         <ul>

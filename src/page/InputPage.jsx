@@ -45,6 +45,12 @@ function InputPage({ onUserInput }) {
           <span className="logo" id="emoji6">
             🍠
           </span>
+          <span className="logo" id="emoji7">
+            🍗
+          </span>
+          <span className="logo" id="emoji8">
+            🥒
+          </span>
         </div>
         <form onSubmit={handleSubmit} className="input-container">
           <div>

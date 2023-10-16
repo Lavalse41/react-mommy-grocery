@@ -16,19 +16,24 @@ function Form({ onAddProduct }) {
     formData.append("upload_preset", "momgrocery-upload");
     formData.append("api_key", import.meta.env.CLOUDINARY_API_KEY);
 
-    const result = await fetch(
-      "https://api.cloudinary.com/v1_1/dluc2m7kg/image/upload",
-      { method: "POST", body: formData }
-    ).then((r) => r.json());
+    let res;
 
-    console.log(result);
+    try {
+      res = await axios.post(
+        "https://api.cloudinary.com/v1_1/dluc2m7kg/image/upload",
+        formData
+      );
+      // console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
 
     if (!name) return;
     const newProduct = {
       id: Date.now(),
       name,
       img:
-        result.secure_url ||
+        res.data.secure_url ||
         "https://res.cloudinary.com/dluc2m7kg/image/upload/v1697108748/mommy-grocery/icon/default-bw_a7yblh.jpg",
       price,
       quantity,
@@ -37,7 +42,6 @@ function Form({ onAddProduct }) {
     };
 
     onAddProduct(newProduct);
-    // console.log(img);
 
     setName("");
     setImg();

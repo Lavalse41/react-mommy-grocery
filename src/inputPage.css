@@ -11,11 +11,17 @@
   color: var(--text);
   line-height: 2.5rem;
   border-radius: 10px;
+  position: relative;
 }
 
 .init {
   background-color: var(--accent--3);
   text-align: center;
+  height: 20px;
+}
+
+.init:focus {
+  border-bottom: var(--text) 2px solid;
 }
 
 .start-button {
@@ -27,9 +33,13 @@
   background-color: var(--main--1);
 }
 
+.start-button:hover {
+  filter: brightness(1.2);
+}
+
 .error {
   position: absolute;
-  top: 580px;
+  top: 115px;
   font-size: var(--fs--sm);
   color: rgb(180, 0, 0);
   font-weight: 700;

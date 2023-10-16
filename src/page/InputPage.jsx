@@ -68,7 +68,7 @@ function InputPage({ onUserInput }) {
             ></input>
             <span>บาท</span>
           </div>
-          {isError && <div className="error">โปรดใส่ชื่อและจำนวนเงิน</div>}
+          {isError && <div className="error">โปรดใส่ชื่อและจำนวนเงินจ้า</div>}
           <button className="start-button">ไปซื้อของกัน!</button>
         </form>
       </div>

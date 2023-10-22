@@ -13,7 +13,7 @@ function Header() {
         <h1>Notes</h1>
         <h2>อย่าลืมซื้อของให้แม่ที่ตลาดด้วย</h2>
       </div>
-      <p>{formattedDate} BE</p>
+      <p className="date">{formattedDate} BE</p>
     </div>
   );
 }

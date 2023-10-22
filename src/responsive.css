@@ -1,0 +1,156 @@
+/* 0-767 mobile
+767-900 tablet portrait
+900-1200 tablet landscape
+1200-1800 normal
+1800 big desktop */
+
+@media (min-width: 1800px) {
+  html {
+    font-size: 70%;
+  }
+  .f2 {
+    left: 2rem;
+  }
+
+  .b2 {
+    left: 0.1rem;
+  }
+}
+
+@media (max-width: 1400px) {
+  html {
+    font-size: 52%;
+  }
+  .f2 {
+    left: 2rem;
+  }
+
+  .b2 {
+    left: 0.1rem;
+  }
+}
+
+@media (max-width: 1300px) {
+  html {
+    font-size: 48%;
+  }
+  .f2 {
+    left: 2rem;
+  }
+
+  .b2 {
+    left: 0.1rem;
+  }
+}
+
+/* change */
+@media (max-width: 1200px) {
+  html {
+    font-size: 45%;
+  }
+  .f2 {
+    left: 2rem;
+  }
+
+  .b2 {
+    left: 0.1rem;
+  }
+  .form {
+    width: 70rem;
+  }
+
+  #backpages {
+    rotate: 90deg;
+    left: -4rem;
+    width: 82rem;
+    height: 70rem;
+  }
+  #form-paper {
+    width: 67rem;
+    height: 77rem;
+    top: -5rem;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .date {
+    margin-top: 1rem;
+    font-size: var(--fs--sm);
+  }
+
+  .form-wrapper {
+    flex-wrap: wrap;
+    line-height: 3.5rem;
+  }
+  #name {
+    width: 22rem;
+  }
+  .file-name {
+    width: 22rem;
+  }
+  .file-input-label {
+    margin-left: 1rem;
+  }
+
+  .file-input-label {
+    margin-right: 0rem;
+  }
+  .option-wrapper {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .pagination-container {
+    margin-right: 2rem;
+  }
+  .balance-wrapper {
+    position: relative;
+    left: -30rem;
+    top: -76rem;
+  }
+}
+
+@media (max-width: 900px) {
+  html {
+    font-size: 37%;
+  }
+  .f2 {
+    left: 2rem;
+  }
+
+  .b2 {
+    left: 0.1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  html {
+    font-size: 50%;
+  }
+
+  .app {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 2rem;
+  }
+
+  .form {
+    top: 11rem;
+  }
+
+  #backpages {
+    rotate: 90deg;
+    left: -7rem;
+    width: 100%rem;
+    height: 70rem;
+  }
+
+  #form-paper {
+    width: 80%;
+    height: 77rem;
+    top: -5rem;
+    left: 0rem;
+  }
+}

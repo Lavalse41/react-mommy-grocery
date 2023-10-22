@@ -23,7 +23,7 @@ function Form({ onAddProduct }) {
         "https://api.cloudinary.com/v1_1/dluc2m7kg/image/upload",
         formData
       );
-      // console.log(res);
+      console.log(res);
     } catch (error) {
       console.log(error);
     }
@@ -32,9 +32,9 @@ function Form({ onAddProduct }) {
     const newProduct = {
       id: Date.now(),
       name,
-      img:
-        res.data.secure_url ||
-        "https://res.cloudinary.com/dluc2m7kg/image/upload/v1697108748/mommy-grocery/icon/default-bw_a7yblh.jpg",
+      img: res
+        ? res.data.secure_url
+        : "https://res.cloudinary.com/dluc2m7kg/image/upload/v1697108748/mommy-grocery/icon/default-bw_a7yblh.jpg",
       price,
       quantity,
       unit,
@@ -80,29 +80,31 @@ function Form({ onAddProduct }) {
           ></input>
         </div>
 
-        <label htmlFor="price">ราคา (ชิ้น)</label>
-        <input
-          id="price"
-          type="text"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-        ></input>
+        <div>
+          <label htmlFor="price">ราคา (ชิ้น)</label>
+          <input
+            id="price"
+            type="text"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+          ></input>
 
-        <label htmlFor="quantity">จำนวน</label>
-        <input
-          id="quantity"
-          type="number"
-          value={quantity}
-          onChange={(e) => setQuantity(e.target.value)}
-        ></input>
+          <label htmlFor="quantity">จำนวน</label>
+          <input
+            id="quantity"
+            type="number"
+            value={quantity}
+            onChange={(e) => setQuantity(e.target.value)}
+          ></input>
 
-        <label htmlFor="unit">หน่วย</label>
-        <input
-          id="unit"
-          type="text"
-          value={unit}
-          onChange={(e) => setUnit(e.target.value)}
-        ></input>
+          <label htmlFor="unit">หน่วย</label>
+          <input
+            id="unit"
+            type="text"
+            value={unit}
+            onChange={(e) => setUnit(e.target.value)}
+          ></input>
+        </div>
 
         <div>
           <button id="send-button">Send</button>

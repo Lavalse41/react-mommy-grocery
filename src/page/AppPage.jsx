@@ -125,7 +125,7 @@ function AppPage() {
       </div>
       <div className="form">
         <img id="backpages" src={imageSrc.backpage}></img>
-        <div>
+        <div className="balance-wrapper">
           <img id="balance-stamp" src={imageSrc.circle}></img>
           <Balance balance={balance} />
         </div>
@@ -143,7 +143,7 @@ function AppPage() {
             />
           </div>
           <div className="sort-checkout">
-            <div style={{ display: "flex", gap: "20px" }}>
+            <div className="option-wrapper">
               <DisplayOption
                 setDisplayOption={setDisplayOption}
                 displayOption={displayOption}

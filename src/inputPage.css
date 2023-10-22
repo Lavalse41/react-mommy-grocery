@@ -1,23 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&family=Noto+Color+Emoji&display=swap");
 
 .input-container {
-  margin-top: 70px;
+  margin-top: 7rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px;
-  width: 450px;
+  padding: 3rem;
+  width: 45rem;
   background-color: var(--accent--3);
   color: var(--text);
-  line-height: 2.5rem;
-  border-radius: 10px;
+  line-height: 3.7rem;
+  border-radius: 1rem;
   position: relative;
+  font-size: var(--fs--reg);
 }
 
 .init {
   background-color: var(--accent--3);
   text-align: center;
-  height: 20px;
+  height: 2rem;
 }
 
 .init:focus {
@@ -27,9 +28,9 @@
 .start-button {
   font-family: "Maitree";
   font-size: var(--fs--mg);
-  border-radius: 7px;
-  margin-top: 40px;
-  padding: 5px 10px;
+  border-radius: 0.7rem;
+  margin-top: 4rem;
+  padding: 0.5rem 1rem;
   background-color: var(--main--1);
 }
 
@@ -39,7 +40,7 @@
 
 .error {
   position: absolute;
-  top: 115px;
+  top: 11.5rem;
   font-size: var(--fs--sm);
   color: rgb(180, 0, 0);
   font-weight: 700;
@@ -52,9 +53,9 @@
 .logo-text {
   font-family: "Love Ya Like A Sister", cursive;
   color: white;
-  font-size: 150px;
+  font-size: 15rem;
   text-align: center;
-  line-height: 9rem;
+  line-height: 14rem;
   letter-spacing: 0.25rem;
 }
 
@@ -69,7 +70,7 @@
   top: 9%;
   left: 10%;
   transform: rotate(-0.05turn);
-  font-size: 60px;
+  font-size: 6rem;
 }
 
 #emoji4 {
@@ -77,7 +78,7 @@
   top: 31%;
   left: 18%;
   transform: rotate(15deg);
-  font-size: 60px;
+  font-size: 6rem;
 }
 
 #emoji5 {
@@ -85,7 +86,7 @@
   top: 62%;
   left: 8%;
   transform: rotate(15deg);
-  font-size: 60px;
+  font-size: 6rem;
 }
 
 #emoji7 {
@@ -93,7 +94,7 @@
   top: 80%;
   left: 18%;
   transform: rotate(-15deg);
-  font-size: 60px;
+  font-size: 6rem;
 }
 
 #emoji8 {
@@ -101,7 +102,7 @@
   top: 83%;
   left: 78%;
   transform: rotate(-15deg);
-  font-size: 60px;
+  font-size: 6rem;
 }
 
 #emoji2 {
@@ -109,7 +110,7 @@
   top: 40%;
   left: 78%;
   transform: rotate(5deg);
-  font-size: 60px;
+  font-size: 6rem;
 }
 
 #emoji6 {
@@ -117,7 +118,7 @@
   top: 58%;
   left: 85%;
   transform: rotate(60deg);
-  font-size: 60px;
+  font-size: 6rem;
 }
 
 #emoji3 {
@@ -125,9 +126,9 @@
   top: 10%;
   left: 80%;
   transform: rotate(5deg);
-  font-size: 60px;
+  font-size: 6rem;
 }
 
 input[type="text"] {
-  width: 130px;
+  width: 13rem;
 }

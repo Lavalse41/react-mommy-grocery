@@ -9,7 +9,7 @@ function Chatbox() {
   return (
     <div className="chatbox">
       <div className="msg-outer-wrapper">
-        <img width="70px" height="70px" src={imageSrc.mommy}></img>
+        <img src={imageSrc.mommy}></img>
         <div className="msg-wrapper">
           <div className="msg first">
             <p>
@@ -29,8 +29,6 @@ function Chatbox() {
             <div id="phone-container">
               <img
                 id="phone"
-                width="15"
-                height="15"
                 src="https://img.icons8.com/ios-filled/50/000000/phone.png"
                 alt="phone"
               />
@@ -45,7 +43,7 @@ function Chatbox() {
         <div className="msg-tail f2"></div>
         <div className="msg-tail b2"></div>
         <div className="msg first user">🥒👌👌</div>
-        <img width="70px" height="70px" src={imageSrc.child}></img>
+        <img src={imageSrc.child}></img>
       </div>
     </div>
   );

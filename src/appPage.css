@@ -236,6 +236,9 @@ hr {
   position: relative;
 }
 
+body {
+}
+
 #backpages {
   position: relative;
   bottom: 0.6rem;

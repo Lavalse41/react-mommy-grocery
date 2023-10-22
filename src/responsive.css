@@ -127,30 +127,33 @@
 
 @media (max-width: 767px) {
   html {
-    font-size: 50%;
+    font-size: 56%;
   }
 
   .app {
     flex-direction: column;
     justify-content: flex-start;
     padding: 2rem;
+    width: 100%;
+    height: 100%;
   }
 
   .form {
+    height: 88rem;
     top: 11rem;
   }
 
   #backpages {
     rotate: 90deg;
     left: -7rem;
-    width: 100%rem;
-    height: 70rem;
+    height: 60rem;
+    top: 4rem;
   }
 
   #form-paper {
-    width: 80%;
+    width: 100%;
     height: 77rem;
     top: -5rem;
-    left: 0rem;
+    left: 9%;
   }
 }

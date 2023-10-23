@@ -96,6 +96,9 @@ function AppPage() {
 
   //set pagination
   const [productOffset, setProductOffset] = useState(0);
+  const [isLargeScreen, setIsLargeScreen] = useState(
+    window.matchMedia("(min-width: 768px)").matches
+  );
 
   let productsPerPage;
   displayOption === "card"

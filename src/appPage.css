@@ -176,6 +176,10 @@ img {
   filter: drop-shadow(0.8rem 0.8rem 0.5rem rgba(0, 0, 0, 0.2));
 }
 
+.summary-container {
+  font-size: var(--fs--reg);
+}
+
 .total {
   text-align: end;
 }
@@ -291,7 +295,7 @@ body {
   /* width: 75rem; */
   display: flex;
   align-items: flex-end;
-  justify-content: space-between;
+  gap: 15rem;
 }
 
 .header > p {
@@ -365,6 +369,7 @@ label {
 }
 
 .grocery-container {
+  position: relative;
   margin-right: 3rem;
   margin-bottom: 2rem;
   height: 9.5rem;
@@ -372,6 +377,7 @@ label {
   border-radius: 1rem;
   display: flex;
   align-items: center;
+  min-width: 28rem;
 }
 
 .detail-container {
@@ -388,38 +394,30 @@ label {
 }
 
 .card-button {
-  position: relative;
   width: 2.2rem;
   height: 2.2rem;
-  border: solid var(--text) 0.2rem;
-  color: var(--text);
-  background: white;
 }
 
 .card-button:hover {
   cursor: pointer;
 }
 
-.subtract > span {
-  position: relative;
-  top: -5%;
+#subtract {
+  margin-left: 1rem;
 }
 
 .delete {
-  left: 1rem;
-  bottom: 4rem;
-  border-radius: 50%;
-  font-size: var(--fs--reg);
-}
-
-.delete > span {
-  font-size: small;
+  position: absolute;
+  left: 26rem;
+  bottom: 7rem;
+  width: 3rem;
 }
 
 .delete-list {
   position: absolute;
-  border: none;
-  left: 25.5rem;
+  top: -0.5rem;
+  left: 26rem;
+  width: 3rem;
 }
 
 button,
@@ -434,15 +432,11 @@ select,
   margin-left: 1rem;
 }
 
-.subtract,
-.add {
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 50%;
-  border: none;
-  background-color: var(--accent--2);
-  color: white;
-  font-weight: 700;
+.quantity-button {
+  width: 2.2rem;
+}
+.quantity-button:hover {
+  cursor: pointer;
 }
 
 /*toggle*/

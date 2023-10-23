@@ -74,6 +74,7 @@
   .header {
     flex-direction: column;
     align-items: flex-start;
+    gap: 0;
   }
 
   .date {
@@ -127,14 +128,14 @@
 
 @media (max-width: 767px) {
   html {
-    font-size: 56%;
+    font-size: 62.5%;
   }
 
   .app {
     flex-direction: column;
     justify-content: flex-start;
     padding: 2rem;
-    width: 100%;
+    width: 100vh;
     height: 100%;
   }
 
@@ -155,5 +156,88 @@
     height: 77rem;
     top: -5rem;
     left: 9%;
+  }
+}
+
+@media (max-width: 767px) {
+  html {
+    font-size: 50%;
+  }
+
+  .app {
+    width: 100vh;
+  }
+
+  .form {
+    height: 90rem;
+    top: 11rem;
+  }
+
+  #backpages {
+    rotate: 90deg;
+    left: -6rem;
+    height: 50%;
+    top: 15rem;
+  }
+
+  #form-paper {
+    width: 63%;
+    height: 77rem;
+    top: -2rem;
+    left: 18%;
+  }
+
+  #name {
+    width: 92%;
+    margin-right: 0;
+  }
+
+  .file-name {
+    width: 12rem;
+  }
+  #price {
+    margin-right: 0;
+  }
+
+  .detail-container {
+    width: 25rem;
+  }
+
+  .delete {
+    left: 35rem;
+  }
+
+  .delete-list {
+    left: 35rem;
+  }
+
+  .grocery-container {
+    width: 37rem;
+  }
+
+  .header h1 {
+    font-size: 4rem;
+  }
+  .header h2 {
+    margin-top: 1rem;
+    font-size: var(--fs--reg);
+  }
+  .file-input-label {
+    margin-right: 1rem;
+  }
+
+  .balance-wrapper {
+    position: relative;
+    left: -48rem;
+    top: -48rem;
+  }
+  #balance-stamp {
+    width: 15rem;
+    height: 15rem;
+  }
+
+  .balance-container {
+    width: 15rem;
+    top: 2.5rem;
   }
 }

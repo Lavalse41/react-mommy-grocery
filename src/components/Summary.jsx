@@ -10,7 +10,7 @@ function Summary({ boughtProducts, balance, totalPrice }) {
           {boughtProducts.map((item) => {
             return (
               <li key={item.id}>
-                <div>
+                <div className="summary-container">
                   <div className="quantity-container left">{item.quantity}</div>
                   <div className="name-container left">{item.name}</div>
                   <div className="price-container right">

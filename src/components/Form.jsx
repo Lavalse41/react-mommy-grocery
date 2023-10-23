@@ -80,31 +80,29 @@ function Form({ onAddProduct }) {
           ></input>
         </div>
 
-        <div>
-          <label htmlFor="price">ราคา (ชิ้น)</label>
-          <input
-            id="price"
-            type="text"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-          ></input>
+        <label htmlFor="price">ราคา (ชิ้น)</label>
+        <input
+          id="price"
+          type="text"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+        ></input>
 
-          <label htmlFor="quantity">จำนวน</label>
-          <input
-            id="quantity"
-            type="number"
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
-          ></input>
+        <label htmlFor="quantity">จำนวน</label>
+        <input
+          id="quantity"
+          type="number"
+          value={quantity}
+          onChange={(e) => setQuantity(e.target.value)}
+        ></input>
 
-          <label htmlFor="unit">หน่วย</label>
-          <input
-            id="unit"
-            type="text"
-            value={unit}
-            onChange={(e) => setUnit(e.target.value)}
-          ></input>
-        </div>
+        <label htmlFor="unit">หน่วย</label>
+        <input
+          id="unit"
+          type="text"
+          value={unit}
+          onChange={(e) => setUnit(e.target.value)}
+        ></input>
 
         <div>
           <button id="send-button">Send</button>

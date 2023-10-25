@@ -453,7 +453,7 @@ select,
 
 /*sort + checkout*/
 
-.checkout-button {
+.clear-button {
   font-family: "Maitree";
   font-size: var(--fs--reg);
   padding: 0.3rem 2rem;
@@ -462,7 +462,7 @@ select,
   border: var(--text) solid 0.2rem;
 }
 
-.checkout-button:hover {
+.clear-button:hover {
   filter: brightness(1.2);
 }
 
@@ -499,7 +499,7 @@ select,
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  margin-right: 16rem;
+  margin-right: 2rem;
 }
 
 .pagination-container > li {
@@ -513,6 +513,11 @@ select,
 .pagination-container > li:not(.selected):hover {
   cursor: pointer;
   color: var(--accent--5);
+}
+
+.pagination-sort-wrapper {
+  display: flex;
+  flex-direction: row;
 }
 
 .selected {
@@ -654,4 +659,61 @@ input:focus {
   top: -28%;
   left: -5%;
   font-size: 6rem;
+}
+
+/*validation box*/
+
+.container {
+  clear: both;
+  position: relative;
+}
+
+.container .arrow {
+  width: 12px;
+  height: 20px;
+  overflow: hidden;
+  position: relative;
+  float: left;
+  top: -13px;
+  right: -30px;
+  transform: rotate(90deg);
+}
+
+.container .arrow .outer {
+  width: 0;
+  height: 0;
+  border-right: 10px solid #000000;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.container .arrow .inner {
+  width: 0;
+  height: 0;
+  border-right: 10px solid #ffffff;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  position: absolute;
+  top: 30;
+  left: 2px;
+}
+
+.container .message-body {
+  float: left;
+  height: auto;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  padding: 6px 8px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.container .message-body p {
+  margin: 0;
 }

@@ -28,7 +28,10 @@ function Form({ onAddProduct }) {
       console.log(error);
     }
 
-    if (!name) return;
+    //input validation
+    if (!name || !price || !quantity || !unit) return;
+    if (name.length > 20) return;
+
     const newProduct = {
       id: Date.now(),
       name,

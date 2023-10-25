@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { imageSrc } from "../data/imageSrc.js";
 import { UserInputContext } from "../App.jsx";
 import Chatbox from "../components/Chatbox.jsx";
@@ -96,16 +96,77 @@ function AppPage() {
 
   //set pagination
   const [productOffset, setProductOffset] = useState(0);
+  const [isTablet, setIsTablet] = useState(
+    window.matchMedia("(max-width: 1200px)").matches
+  );
+  const [isMobile, setIsMobile] = useState(
+    window.matchMedia("(max-width: 767px)").matches
+  );
+  const [isDesktop, setIsDesktop] = useState(
+    window.matchMedia("(max-width: 1799px)").matches
+  );
   const [isLargeScreen, setIsLargeScreen] = useState(
-    window.matchMedia("(min-width: 768px)").matches
+    window.matchMedia("(min-width: 1800px)").matches
   );
 
+  const handleMobile = (event) => {
+    setIsMobile(event.matches);
+  };
+
+  const handleTablet = (event) => {
+    setIsTablet(event.matches);
+  };
+
+  const handleLargeScreen = (event) => {
+    setIsLargeScreen(event.matches);
+  };
+
+  const handleDesktop = (event) => {
+    setIsDesktop(event.matches);
+  };
+
+  useEffect(() => {
+    // const mediaQueryMobile = window.matchMedia("(max-width: 767px)");
+    const mediaQueryTablet = window.matchMedia("(max-width: 1200px)");
+    const mediaQueryLargeScreen = window.matchMedia("(min-width: 1800px)");
+    const mediaQueryDesktop = window.matchMedia("(max-width: 1799px)");
+
+    const addListeners = () => {
+      // mediaQueryMobile.addListener(handleMobile);
+      mediaQueryTablet.addListener(handleTablet);
+      mediaQueryLargeScreen.addListener(handleLargeScreen);
+      mediaQueryDesktop.addListener(handleDesktop);
+    };
+
+    const removeListeners = () => {
+      // mediaQueryMobile.removeListener(handleMobile);
+      mediaQueryTablet.removeListener(handleTablet);
+      mediaQueryLargeScreen.removeListener(handleLargeScreen);
+      mediaQueryDesktop.removeListener(handleDesktop);
+    };
+
+    addListeners();
+
+    return () => {
+      removeListeners();
+    };
+  }, []);
+
   let productsPerPage;
-  displayOption === "card"
-    ? (productsPerPage = 9)
-    : displayOption === "list"
-    ? (productsPerPage = 18)
-    : "";
+
+  if (displayOption === "card") {
+    isTablet
+      ? (productsPerPage = 6)
+      : isLargeScreen || isDesktop
+      ? (productsPerPage = 9)
+      : "";
+  } else if (displayOption === "list") {
+    isTablet
+      ? (productsPerPage = 18)
+      : isLargeScreen || isDesktop
+      ? (productsPerPage = 27)
+      : "";
+  }
 
   const endOffset = productOffset + productsPerPage;
   const currentProducts = sortedProducts.slice(productOffset, endOffset);
@@ -115,6 +176,17 @@ function AppPage() {
     const newOffset = (e.selected * productsPerPage) % sortedProducts.length;
     setProductOffset(newOffset);
   }
+  console.log(typeof productsPerPage);
+  console.log(productsPerPage);
+  console.log("isMobile", isMobile);
+  console.log("isMobile", window.matchMedia("(max-width: 767px)").matches);
+  console.log("isLargeScreen".isLargeScreen);
+  console.log(
+    "isLargeScreen",
+    window.matchMedia("(min-width: 1800px)").matches
+  );
+  console.log("isTablet", isTablet);
+  console.log("isTablet", window.matchMedia("(max-width: 1200px)").matches);
 
   return (
     <div className="app">
@@ -128,6 +200,8 @@ function AppPage() {
       </div>
       <div className="form">
         <img id="backpages" src={imageSrc.backpage}></img>
+        <div id="backpages1"></div>
+        <div id="backpages2"></div>
         <div className="balance-wrapper">
           <img id="balance-stamp" src={imageSrc.circle}></img>
           <Balance balance={balance} />
@@ -153,19 +227,21 @@ function AppPage() {
               />
               <SortList setSortBy={setSortBy} />
             </div>
-            <ReactPaginate
-              breakLabel="..."
-              nextLabel=">"
-              onPageChange={handlePageClick}
-              pageRangeDisplayed={5}
-              pageCount={pageCount}
-              previousLabel="<"
-              renderOnZeroPageCount={null}
-              className="pagination-container"
-            />
-            <button className="checkout-button" onClick={handleClearList}>
-              Clear
-            </button>
+            <div className="pagination-sort-wrapper">
+              <ReactPaginate
+                breakLabel="..."
+                nextLabel=">"
+                onPageChange={handlePageClick}
+                pageRangeDisplayed={5}
+                pageCount={pageCount}
+                previousLabel="<"
+                renderOnZeroPageCount={null}
+                className="pagination-container"
+              />
+              <button className="clear-button" onClick={handleClearList}>
+                Clear
+              </button>
+            </div>
           </div>
         </div>
       </div>

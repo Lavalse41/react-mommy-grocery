@@ -240,9 +240,6 @@ hr {
   position: relative;
 }
 
-body {
-}
-
 #backpages {
   position: relative;
   bottom: 0.6rem;
@@ -251,6 +248,11 @@ body {
   width: 100rem;
   z-index: 1;
   filter: drop-shadow(0.8rem 0.8rem 1rem rgba(0, 0, 0, 0.2));
+}
+
+#backpages1,
+#backpages2 {
+  opacity: 0;
 }
 
 #form-paper {
@@ -453,13 +455,19 @@ select,
 
 /*sort + checkout*/
 
-.checkout-button {
+.clear-button {
   font-family: "Maitree";
   font-size: var(--fs--reg);
   padding: 0.3rem 2rem;
   border-radius: 0.5rem;
   background-color: var(--accent--5);
   border: var(--text) solid 0.2rem;
+  width: 8rem;
+}
+
+.pagination-sort-wrapper {
+  display: flex;
+  flex-direction: row;
 }
 
 .checkout-button:hover {
@@ -499,7 +507,7 @@ select,
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  margin-right: 16rem;
+  margin-right: 1.5rem;
 }
 
 .pagination-container > li {

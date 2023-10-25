@@ -15,6 +15,11 @@
   font-size: var(--fs--reg);
 }
 
+#username {
+  width: 78%;
+  margin-right: 0;
+}
+
 .init {
   background-color: var(--accent--3);
   text-align: center;

@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import "./appPage.css";
 import "./root.css";
+import "./responsive.css";
 export const UserInputContext = React.createContext();
 
 function App() {

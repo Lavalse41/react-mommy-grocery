@@ -309,6 +309,7 @@ body {
   background-color: var(--main--1);
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 
 input {
@@ -665,7 +666,32 @@ input:focus {
 
 .container {
   clear: both;
-  position: relative;
+  z-index: 50;
+}
+
+.warning {
+  position: absolute;
+  width: 15px;
+  top: 5px;
+  right: 8px;
+}
+
+#price-error {
+  position: absolute;
+  top: 45px;
+  left: 500px;
+}
+
+#quantity-error {
+  position: absolute;
+  top: 45px;
+  left: 620px;
+}
+
+#name-error {
+  position: absolute;
+  top: 45px;
+  left: 45px;
 }
 
 .container .arrow {
@@ -682,7 +708,7 @@ input:focus {
 .container .arrow .outer {
   width: 0;
   height: 0;
-  border-right: 10px solid #000000;
+  border-right: 10px solid #ae1717;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   position: absolute;
@@ -706,8 +732,8 @@ input:focus {
   height: auto;
   border: 1px solid #ccc;
   background-color: #ffffff;
-  border: 1px solid #000000;
-  padding: 6px 8px;
+  border: 2px solid #ca1b1b;
+  padding: 6px 10px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -o-border-radius: 5px;
@@ -716,4 +742,7 @@ input:focus {
 
 .container .message-body p {
   margin: 0;
+  font-size: var(--fs--sm);
+  color: #ca1b1b;
+  font-weight: 700;
 }

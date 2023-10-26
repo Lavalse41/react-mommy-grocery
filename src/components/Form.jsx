@@ -36,8 +36,8 @@ function Form({ onAddProduct }) {
       console.log(error);
     }
 
-    //name character must not exceed 20
-    setIsNameError(name.length > 20 ? true : false);
+    //name character must not exceed 13
+    setIsNameError(name.length > 13 ? true : false);
 
     //price and quantity have to be number
     function isNumber(s) {
@@ -69,7 +69,7 @@ function Form({ onAddProduct }) {
       !quantity ||
       quantity === 0 ||
       !unit ||
-      name.length > 20 ||
+      name.length > 13 ||
       !isNumber(quantity) ||
       !isNumber(price)
     )
@@ -101,28 +101,40 @@ function Form({ onAddProduct }) {
     setImg(target.files[0]);
   }
 
+  const isDesktop = window.matchMedia("(min-width: 1201px)").matches;
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+  console.log(isMobile);
+  const isTablet = window.matchMedia("(max-width: 1200px)").matches;
+
   return (
     <div className="">
       <form className="form-wrapper" onSubmit={handleSubmit}>
         {/* validation message */}
-
         {isNameError && (
-          <div class="container" id="name-error">
-            <div class="arrow">
-              <div class="outer"></div>
-              <div class="inner"></div>
+          <div className="container " id="name-error">
+            <div
+              className={`arrow ${
+                isMobile || isTablet ? "arrow-bottom" : "arrow-top"
+              }`}
+            >
+              <div className="outer"></div>
+              <div className="inner"></div>
             </div>
             <div className="message-body">
-              <p>โปรดใส่ชื่อไม่เกิน 20 ตัวอักษร</p>
+              <p>โปรดใส่ชื่อไม่เกิน 13 ตัวอักษร</p>
             </div>
           </div>
         )}
 
         {isPriceError && (
-          <div class="container" id="price-error">
-            <div class="arrow">
-              <div class="outer"></div>
-              <div class="inner"></div>
+          <div className="container" id="price-error">
+            <div
+              className={`arrow ${
+                isMobile ? "arrow-bottom" : isTablet ? "arrow-top" : "arrow-top"
+              }`}
+            >
+              <div className="outer"></div>
+              <div className="inner"></div>
             </div>
             <div className="message-body">
               <p>โปรดใส่ตัวเลข</p>
@@ -131,10 +143,10 @@ function Form({ onAddProduct }) {
         )}
 
         {isQuantityError && (
-          <div class="container" id="quantity-error">
-            <div class="arrow">
-              <div class="outer"></div>
-              <div class="inner"></div>
+          <div className="container" id="quantity-error">
+            <div className="arrow arrow-top">
+              <div className="outer"></div>
+              <div className="inner"></div>
             </div>
             <div className="message-body">
               <p>โปรดใส่ตัวเลข</p>
@@ -155,27 +167,28 @@ function Form({ onAddProduct }) {
           ></input>
           {isNameExist && <Warning />}
         </div>
-
-        <label htmlFor="img">รูป</label>
-        <div className="file-input-container">
-          <span className="file-name">{img && `${img.name}`}</span>
-          <label htmlFor="img" className="file-input-label">
-            Upload
-          </label>
-          <input
-            id="image"
-            type="file"
-            onChange={handleUploadFile}
-            className="input-file"
-          ></input>
+        <div style={{ display: "flex" }}>
+          <label htmlFor="img">รูป</label>
+          <div className="file-input-container">
+            <span className="file-name">{img && `${img.name}`}</span>
+            <label htmlFor="img" className="file-input-label">
+              Upload
+            </label>
+            <input
+              id="image"
+              type="file"
+              onChange={handleUploadFile}
+              className="input-file"
+            ></input>
+          </div>
         </div>
-
         <div style={{ position: "relative" }}>
           <label htmlFor="price">ราคา (ชิ้น)</label>
           <input
             id="price"
             type="text"
             value={price}
+            maxlength={4}
             onChange={(e) => {
               setPrice(e.target.value);
               setIsPriceExist(false);
@@ -183,7 +196,6 @@ function Form({ onAddProduct }) {
           ></input>
           {isPriceExist && <Warning />}
         </div>
-
         <div style={{ position: "relative" }}>
           <label htmlFor="quantity">จำนวน</label>
           <input
@@ -199,7 +211,6 @@ function Form({ onAddProduct }) {
           ></input>
           {isQuantityExist && <Warning />}
         </div>
-
         <div style={{ position: "relative" }}>
           <label htmlFor="unit">หน่วย</label>
           <input
@@ -213,7 +224,6 @@ function Form({ onAddProduct }) {
           ></input>
           {isUnitExist && <Warning />}
         </div>
-
         <div>
           <button id="send-button">Send</button>
         </div>

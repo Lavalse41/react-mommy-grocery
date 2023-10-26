@@ -8,6 +8,7 @@
   html {
     font-size: 70%;
   }
+
   .f2 {
     left: 2rem;
   }
@@ -26,6 +27,21 @@
   html {
     font-size: 52%;
   }
+
+  #name-error {
+    position: absolute;
+    top: 4.8rem;
+    left: 4.5rem;
+  }
+
+  .arrow-bottom {
+    top: 22px;
+  }
+
+  .arrow-top {
+    top: -13px;
+  }
+
   .f2 {
     left: 2rem;
   }
@@ -63,6 +79,40 @@
   html {
     font-size: 45%;
   }
+
+  .warning {
+    top: 6px;
+  }
+
+  .container .message-body {
+    padding: 0.1rem 1.3rem;
+    top: 20px;
+  }
+
+  #name-error {
+    position: absolute;
+    top: -4rem;
+    left: 15rem;
+  }
+
+  .arrow-bottom {
+    top: 22px;
+  }
+
+  .arrow-top {
+    top: -12px;
+  }
+
+  #price-error {
+    top: 9rem;
+    left: 9rem;
+  }
+
+  #quantity-error {
+    top: 9rem;
+    left: 26rem;
+  }
+
   .f2 {
     left: 2rem;
   }
@@ -137,6 +187,34 @@
   html {
     font-size: 37%;
   }
+
+  .arrow-bottom {
+    top: 18px;
+  }
+
+  #price-error {
+    position: absolute;
+    top: 9rem;
+    left: 7.5rem;
+  }
+
+  #quantity-error {
+    position: absolute;
+    top: 9rem;
+    left: 25rem;
+  }
+
+  #name-error {
+    position: absolute;
+    top: -4.5rem;
+    left: 15rem;
+  }
+
+  .warning {
+    top: 1rem;
+    right: -0.8rem;
+  }
+
   .f2 {
     left: 2rem;
   }
@@ -153,14 +231,60 @@
 @media (max-width: 767px) {
   /* input page */
   html {
-    font-size: 40%;
+    font-size: 70%;
+  }
+
+  #emoji1,
+  #emoji2,
+  #emoji3,
+  #emoji4,
+  #emoji5,
+  #emoji6,
+  #emoji7,
+  #emoji8 {
+    opacity: 0;
   }
 
   .logo-text {
-    font-size: 13rem;
+    font-size: 8rem;
+    line-height: 8rem;
+  }
+
+  .input-container {
+    width: 100%;
   }
 
   /* app page */
+
+  /*form validation */
+  .warning {
+    top: 1rem;
+    right: -1.7rem;
+  }
+
+  .arrow-bottom {
+    top: 20px;
+  }
+
+  #price-error {
+    position: absolute;
+    top: 0rem;
+    left: 30.4rem;
+  }
+
+  #quantity-error {
+    position: absolute;
+    top: 12.5rem;
+    left: 6rem;
+  }
+
+  #name-error {
+    position: absolute;
+    top: -4.5rem;
+    left: 15rem;
+  }
+
+  /*other*/
 
   #backpages {
     opacity: 0;
@@ -228,12 +352,12 @@
   }
 
   #name {
-    width: 92%;
+    width: 35.1rem;
     margin-right: 0;
   }
 
   .file-name {
-    width: 12rem;
+    width: 12.5rem;
   }
   #price {
     margin-right: 0;

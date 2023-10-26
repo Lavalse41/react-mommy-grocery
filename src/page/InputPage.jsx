@@ -56,7 +56,7 @@ function InputPage({ onUserInput }) {
           <div>
             <label htmlFor="name">คุณชื่อ</label>
             <input
-              id="name"
+              id="username"
               className="init"
               type="text"
               onChange={(e) => setName(e.target.value)}

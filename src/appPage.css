@@ -45,6 +45,10 @@ label {
   align-items: center;
 }
 
+#username {
+  width: 20rem;
+}
+
 .logo {
   font-size: 8rem;
   color: aliceblue;
@@ -421,6 +425,10 @@ label {
   width: 3rem;
 }
 
+.delete:hover {
+  cursor: pointer;
+}
+
 button,
 select,
 .toggle:hover {
@@ -671,35 +679,45 @@ input:focus {
 
 .warning {
   position: absolute;
-  width: 15px;
-  top: 5px;
-  right: 8px;
+  width: 1.6rem;
+  top: 0.5rem;
+  right: 1rem;
 }
 
 #price-error {
   position: absolute;
-  top: 45px;
-  left: 500px;
+  top: 4.8rem;
+  left: 54.5rem;
 }
 
 #quantity-error {
   position: absolute;
-  top: 45px;
-  left: 620px;
+  top: 4.8rem;
+  left: 67.5rem;
 }
 
 #name-error {
   position: absolute;
-  top: 45px;
-  left: 45px;
+  top: 4.8rem;
+  left: 4.5rem;
 }
 
 .container .arrow {
   width: 12px;
   height: 20px;
   overflow: hidden;
-  position: relative;
   float: left;
+}
+
+.arrow-bottom {
+  position: relative;
+  top: 20px;
+  right: -30px;
+  transform: rotate(270deg);
+}
+
+.arrow-top {
+  position: relative;
   top: -13px;
   right: -30px;
   transform: rotate(90deg);
@@ -733,7 +751,7 @@ input:focus {
   border: 1px solid #ccc;
   background-color: #ffffff;
   border: 2px solid #ca1b1b;
-  padding: 6px 10px;
+  padding: 0.7rem 1.3rem;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -o-border-radius: 5px;

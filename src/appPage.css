@@ -425,7 +425,8 @@ label {
   width: 3rem;
 }
 
-.delete:hover {
+.delete,
+.delete-list:hover {
   cursor: pointer;
 }
 

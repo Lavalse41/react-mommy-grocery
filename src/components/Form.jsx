@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import Warning from "./warning";
+import Warning from "./Warning";
 
 function Form({ onAddProduct }) {
   const [name, setName] = useState("");
